@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" />
+	<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+	<div class="search-wrapper">
+		<div class="input-holder">
+			<input type="text" class="search-input" placeholder="Type to search" />
+			<button class="search-icon" onclick="searchToggle(this, event);"><span></span></button>
+		</div>
+		<span class="close" onclick="searchToggle(this, event);"></span>
+	</div>
+	
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+	<script>
+		function searchToggle(obj, evt) {
+			var container = $(obj).closest('.search-wrapper');
+			if (!container.hasClass('active')) {
+				container.addClass('active');
+				evt.preventDefault();
+			} else if (container.hasClass('active') && $(obj).closest('.input-holder').length == 0) {
+				container.removeClass('active');
+				// clear input
+				container.find('.search-input').val('');
+			}
+		}
+
+	</script>
+</body>
+
+</html>
